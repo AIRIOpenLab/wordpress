@@ -20,10 +20,11 @@ build:wordpress:
     - mkdir -p $HOME/.docker
     - echo "$DOCKER_AUTH_CONFIG" > "$HOME/.docker/config.json"
     - cd $VARIANT
-    - docker build --tag $QUAL_NAME:$CI_BUILD_REF --tag $QUAL_NAME:latest .
+    - slash='/'; export IMG_VAR="${VARIANT//$slash/-}";
+    - docker build --tag $QUAL_NAME:$CI_BUILD_REF --tag $QUAL_NAME:latest --tag $QUAL_NAME:$IMG_VAR .
     - docker push $QUAL_NAME:$CI_BUILD_REF
     - docker push $QUAL_NAME:latest
-    - slash='/'; img_var="${VARIANT//$slash/-}"; docker push $QUAL_NAME:$img_var
+    - docker push $QUAL_NAME:$IMG_VAR
   only:
     - web
 
