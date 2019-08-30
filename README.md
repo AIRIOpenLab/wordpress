@@ -14,6 +14,7 @@ For outstanding `wordpress` image PRs, check [PRs with the "library/wordpress" l
 
 ---
 
+-       [![Gitlab pipeline status (branch)](https://img.shields.io/gitlab/pipeline/mbarison/wordpress/master)](https://gitlab.com/mbarison/wordpress)
 -	[![build status badge](https://img.shields.io/travis/docker-library/wordpress/master.svg?label=Travis%20CI)](https://travis-ci.org/docker-library/wordpress/branches)
 -	[![build status badge](https://img.shields.io/jenkins/s/https/doi-janky.infosiftr.net/job/update.sh/job/wordpress.svg?label=Automated%20update.sh)](https://doi-janky.infosiftr.net/job/update.sh/job/wordpress)
 
