@@ -1,0 +1,29 @@
+---
+stages:
+  - build
+
+build:wordpress:
+  image: docker:stable
+  stage: build
+  services:
+    - docker:dind
+  before_script:
+    - docker info
+  variables: &variables
+    DOCKER_HOST: tcp://docker:2375/
+    DOCKER_DRIVER: overlay2
+    CONTAINER_IMAGE: wordpress
+    REPOSITORY: airiopenlab
+    VARIANT: php5.6/apache
+  script:
+    - export QUAL_NAME=${REPOSITORY}/${CONTAINER_IMAGE}
+    - mkdir -p $HOME/.docker
+    - echo "$DOCKER_AUTH_CONFIG" > "$HOME/.docker/config.json"
+    - cd $VARIANT
+    - docker build --tag $QUAL_NAME:$CI_BUILD_REF --tag $QUAL_NAME:latest .
+    - docker push $QUAL_NAME:$CI_BUILD_REF
+    - docker push $QUAL_NAME:latest
+    - slash='/'; img_var="${VARIANT//$slash/-}"; docker push $QUAL_NAME:$img_var
+  only:
+    - web
+
