@@ -87,6 +87,10 @@ if [[ "$1" == apache2* ]] || [ "$1" == php-fpm ]; then
 			EOF
 			chown "$user:$group" .htaccess
 		fi
+		echo >&2 "Copying AIRI plugins to directory"
+		mkdir -p /var/www/html/wp-content/plugins
+		mv ~/AIRIplugin/* /var/www/html/wp-content/plugins
+		rm -rf ~/AIRIplugin/
 	fi
 
 	# allow any of these "Authentication Unique Keys and Salts." to be specified via
