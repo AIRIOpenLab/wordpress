@@ -13,6 +13,10 @@ RUN set -ex; \
 		git \
 	; \
 	git clone https://github.com/AIRIOpenLab/AIRIplugin.git ~/AIRIplugin; \
+	curl -sL https://deb.nodesource.com/setup_8.x | bash - ; \
+	apt-get install -y nodejs; \
+	npm install uglify-js -g; \
+	cd ~/AIRIplugin; make; cd ~;
 	\
 	docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr; \
 	docker-php-ext-install -j "$(nproc)" \
