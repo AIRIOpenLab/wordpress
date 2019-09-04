@@ -20,7 +20,7 @@ RUN set -ex; \
 	cd ~/AIRIplugin; make; cd ~; \
 	\
 	docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr \
-		--with-ttf --with-freetype-dir=/usr --enable-gd-native-ttf --enable-freetype-4bit-antialias-hack; \
+		--with-freetype-dir=/usr --enable-gd-native-ttf; \
 	docker-php-ext-install -j "$(nproc)" \
 		bcmath \
 		exif \
