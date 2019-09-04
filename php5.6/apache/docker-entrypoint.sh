@@ -91,6 +91,14 @@ if [[ "$1" == apache2* ]] || [ "$1" == php-fpm ]; then
 		mkdir -p /var/www/html/wp-content/plugins
 		mv ~/AIRIplugin/* /var/www/html/wp-content/plugins
 		rm -rf ~/AIRIplugin/
+		cp /run/secrets/secret-counselling-gmaps  /var/www/html/wp-content/plugins/AIRICounselling/gmaps.txt
+		cp /run/secrets/secret-editing-recaptcha  /var/www/html/wp-content/plugins/AIRIEditing/recaptcha.txt
+		cp /run/secrets/secret-soci-gmaps  		  /var/www/html/wp-content/plugins/AIRIsoci/gmaps.txt	
+		cp /run/secrets/secret-soci-mchimp        /var/www/html/wp-content/plugins/AIRIsoci/mchimp.txt
+		cp /run/secrets/secret-soci-mchimp-amici  /var/www/html/wp-content/plugins/AIRIsoci/mchimp-amici.txt
+		cp /run/secrets/secret-soci-recaptcha     /var/www/html/wp-content/plugins/AIRIsoci/recaptcha.txt
+		echo >&2 "Creating local folders"
+		mkdir -p /var/www/html/wp-content/uploads/prove-pagamento
 	fi
 
 	# allow any of these "Authentication Unique Keys and Salts." to be specified via

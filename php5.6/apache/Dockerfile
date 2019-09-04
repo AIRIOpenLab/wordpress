@@ -10,6 +10,7 @@ RUN set -ex; \
 		libjpeg-dev \
 		libmagickwand-dev \
 		libpng-dev \
+		libfreetype6-dev \
 		git \
 	; \
 	git clone https://github.com/AIRIOpenLab/AIRIplugin.git ~/AIRIplugin; \
@@ -18,7 +19,8 @@ RUN set -ex; \
 	npm install uglify-js -g; \
 	cd ~/AIRIplugin; make; cd ~; \
 	\
-	docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr; \
+	docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr \
+		--with-ttf --with-freetype-dir=/usr --enable-gd-native-ttf --enable-freetype-4bit-antialias-hack; \
 	docker-php-ext-install -j "$(nproc)" \
 		bcmath \
 		exif \
