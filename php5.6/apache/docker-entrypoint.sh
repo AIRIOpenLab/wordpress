@@ -93,15 +93,16 @@ if [[ "$1" == apache2* ]] || [ "$1" == php-fpm ]; then
 		rm -rf ~/AIRIplugin/
 		cp /run/secrets/secret-counselling-gmaps  /var/www/html/wp-content/plugins/AIRICounselling/gmaps.txt
 		cp /run/secrets/secret-leaflet            /var/www/html/wp-content/plugins/AIRICounselling/leaflet.txt
-		cp /run/secrets/secret-editing-recaptcha-en  /var/www/html/wp-content/plugins/AIRIEditing/recaptcha-en.txt
-		cp /run/secrets/secret-editing-editors       /var/www/html/wp-content/plugins/AIRIEditing/editori.csv
-		cp /run/secrets/secret-soci-recaptcha     /var/www/html/wp-content/plugins/AIRIEditing/recaptcha.txt 	
+		cp /run/secrets/secret-recaptcha-sitekey  /var/www/html/wp-content/plugins/AIRIEditing/recaptcha-sitekey.txt
+		cp /run/secrets/secret-recaptcha-secret   /var/www/html/wp-content/plugins/AIRIEditing/recaptcha-secret.txt
+		cp /run/secrets/secret-editing-editors    /var/www/html/wp-content/plugins/AIRIEditing/editori.csv
 		cp /run/secrets/secret-leaflet   		  /var/www/html/wp-content/plugins/AIRIGuida/leaflet.txt	
 		cp /run/secrets/secret-leaflet  		  /var/www/html/wp-content/plugins/AIRIsoci/leaflet.txt
 		cp /run/secrets/secret-soci-gmaps  		  /var/www/html/wp-content/plugins/AIRIsoci/gmaps.txt	
 		cp /run/secrets/secret-soci-mchimp        /var/www/html/wp-content/plugins/AIRIsoci/mchimp.txt
 		cp /run/secrets/secret-soci-mchimp-amici  /var/www/html/wp-content/plugins/AIRIsoci/mchimp-amici.txt
-		cp /run/secrets/secret-soci-recaptcha     /var/www/html/wp-content/plugins/AIRIsoci/recaptcha.txt
+		cp /run/secrets/secret-recaptcha-sitekey  /var/www/html/wp-content/plugins/AIRIsoci/recaptcha-sitekey.txt
+		cp /run/secrets/secret-recaptcha-secret   /var/www/html/wp-content/plugins/AIRIsoci/recaptcha-secret.txt
 		echo >&2 "Creating local folders"
 		mkdir -p /var/www/html/wp-content/uploads/prove-pagamento
 	fi
